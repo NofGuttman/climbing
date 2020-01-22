@@ -1,0 +1,15 @@
+.header {
+  background-color: #555;
+  padding: 1em 0;
+  color: #ddd;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-bar li {
+  list-style: none;
+}
