@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 // MiddleWares
 app.use(express.json());
 app.use(bodyParser.json());
+app.use('/uploads', express.static('uploads'));
 
 // Routes
 const gymsRoute = require('./api/routes/gyms');

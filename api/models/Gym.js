@@ -6,7 +6,7 @@ const gymSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  location: {
+  address: {
     type: String,
     required: true
   },
@@ -19,7 +19,7 @@ const gymSchema = mongoose.Schema({
     fri: { type: String, default: "" },
     sat: { type: String, default: "" }
   },
-  webSite: {
+  website: {
     type: String,
     required: true
   }

@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
   const gym = new Gym({
     _id: mongoose.Types.ObjectId(),
     name: req.body.name,
-    location: req.body.location,
+    address: req.body.address,
     hours: {
       sun: req.body.hours.sun,
       mon: req.body.hours.mon,

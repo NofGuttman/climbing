@@ -1,13 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import Gym from './Gym';
+import EditGym from './EditGym';
+import NewGymForm from './NewGymForm';
 
 export default class GymsPage extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      gymsList: []
-    }
+  
+  state = {
+    gymsList: []
   }
   
   componentDidMount() {
@@ -21,17 +20,15 @@ export default class GymsPage extends React.Component {
   
   render() {
     const gyms = this.state.gymsList.map(gym => {
-      return <Gym
-               key={gym._id}
-               name={gym.name}
-               hours={gym.hours}
-               address={gym.address}
-               website={gym.website}
-               image={gym.image}
-              />
-    })
+      return (
+        <EditGym 
+          name={gym.name}
+          />
+      )
+    });
     return (
       <div className="page">
+        <NewGymForm />
         {gyms}
       </div>
     );

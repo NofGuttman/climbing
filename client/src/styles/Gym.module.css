@@ -2,12 +2,12 @@
   text-align: right;
   border-radius: 4px;
   width: 18em;
-  height: 22em;
   display: inline-block;
   margin: 1em;
   overflow: hidden;
   box-shadow: 0px 4px 8px -2px grey;
   transition: 200ms ease;
+  background-color: white;
 }
 
 .image-box {
@@ -15,14 +15,14 @@
   text-align: center;
 }
 
-.container:hover {
-  transform: scale(1.02);
-}
-
 .image {
   width: 100%;
-  height: 15em;
+  height: 12em;
   object-fit: cover;
+}
+
+.content {
+  padding: .5em;
 }
 
 .name {
@@ -31,4 +31,27 @@
   color: white;
   text-shadow: 0 0 5px black;
   bottom: 0;
+}
+
+.hours {
+  padding: .5em 0;
+}
+
+.hours caption {
+  text-align: right;
+  font-weight: bold;
+}
+
+.hours td {
+  direction: ltr;
+  min-width: 3.5em;
+}
+
+.address label {
+  font-weight: bold;
+}
+
+.website a {
+  text-decoration: none;
+  direction: ltr;
 }
