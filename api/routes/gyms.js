@@ -37,13 +37,23 @@ router.post('/', (req, res) => {
       fri: req.body.hours.fri,
       sat: req.body.hours.sat,
     },
-    webSite: req.body.webSite
+    website: req.body.website
   });
-  
   gym.save((err, gym) => {
-    res.send(gym);
+    if(err) {
+      res.send({message: err})
+    } else {
+      res.send(gym);
+    }
   });
 });
 
+router.delete('/:id', (req, res) => {
+  Gym.deleteOne({_id: req.params.id}, (err) => {
+    if(err) {
+      return {message: err};
+    }
+  })
+});
 
 module.exports = router;

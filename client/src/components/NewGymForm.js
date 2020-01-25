@@ -1,19 +1,21 @@
 import React from 'react';
 import styles from '../styles/NewGymForm.module.css';
+import axios from 'axios';
 
 export default class NewGymForm extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      name: "",
-      sun: "",
-      mon: "",
-      tue: "",
-      wed: "",
-      thu: "",
-      fri: "",
-      sat: "",
-      website: ""
+      name: null,
+      address: null,
+      sun: null,
+      mon: null,
+      tue: null,
+      wed: null,
+      thu: null,
+      fri: null,
+      sat: null,
+      website: null
     };
     this.submitForm = this.submitForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +23,25 @@ export default class NewGymForm extends React.Component {
   
   submitForm(event) {
     event.preventDefault();
-    console.log("submitted");
+    const gym = {
+      name: this.state.name,
+      address: this.state.address,
+      hours: {
+        sun: this.state.sun,
+        mon: this.state.mon,
+        tue: this.state.tue,
+        wed: this.state.wed,
+        thu: this.state.thu,
+        fri: this.state.fri,
+        sat: this.state.sat
+      },
+      website: this.state.website
+    }
+    axios.post('/gyms', gym)
+    .then(res => {
+      console.log(res);
+      this.props.addGymHandler();
+    });
   }
   
   handleChange(event) {
@@ -29,7 +49,6 @@ export default class NewGymForm extends React.Component {
     this.setState({
       [event.target.name]: value
     });
-    console.log(this.state);
   }
   
   render() {
@@ -47,6 +66,7 @@ export default class NewGymForm extends React.Component {
         <input placeholder="שבת" name="sat" onChange={this.handleChange} />
         <br/>
         <input placeholder="אתר" name="website" onChange={this.handleChange} />
+        <button type="submit">הוסף מכון</button>
       </form>
     );
   }
